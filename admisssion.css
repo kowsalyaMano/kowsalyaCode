@@ -1,0 +1,59 @@
+body {
+  background-image: url(https://images.pexels.com/photos/207684/pexels-photo-207684.jpeg);
+  background-size: 70%;
+  font-weight: bold;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+h3 {
+  color: #ffffff;
+  background-color: #00ccff;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 50%;
+  font-family: Verdana;
+  padding: 5px;
+  border-radius: 6px;
+}
+table,
+tr,
+td {
+  width: 50%;
+  border-style: solid 1px;
+  margin-left: auto;
+  margin-right: auto;
+  border-spacing: 1px;
+  border-radius: 6px;
+  color: #009900;
+  background-color: #f2f2f2;
+  padding: 1px;
+}
+div {
+  font-size: 20px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+#submit {
+  color: #ffffff;
+  background-color: #00ccff;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px;
+  width: 100%;
+  font-family: Verdana;
+  font-weight: bold;
+  border-radius: 6px;
+  justify-content: center;
+}
+
+#result {
+  color: #00cc66;
+  background-color: #ffffff;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px;
+  width: 50%;
+  font-size: 20px;
+}
