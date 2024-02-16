@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>York Admission</title>
+    <link rel="stylesheet" href="admisssion.css" />
+  </head>
+  <body onload="disableSubmit()">
+    <h3>York Admission</h3>
+
+    <form action="#" onsubmit="return display(event)">
+      <table>
+        <tr>
+          <td><label for="sname">Student Name</label></td>
+          <td>
+            <input
+              type="text"
+              id="sname"
+              name="sname"
+              pattern="[A-Za-z\s]+"
+              title="Should contains alphabets and spaces only"
+              placeholder="Enter the student name"
+              required
+            />
+          </td>
+        </tr>
+        <tr>
+          <td><label for="phno">Phone Number</label></td>
+          <td>
+            <input
+              type="tel"
+              id="phno"
+              name="phno"
+              pattern="[7-9]{1}[0-9]{9}"
+              title="Should contains 10 digits number starts from 7/8/9"
+              placeholder="Enter the phone number"
+              required
+            />
+          </td>
+        </tr>
+        <tr>
+          <td><label for="aid">Admission Id</label></td>
+          <td>
+            <input
+              type="text"
+              id="aid"
+              name="aid"
+              placeholder="Enter the admission id"
+              required
+            />
+          </td>
+        </tr>
+        <tr>
+          <td><label for="admissiondate">Date Of Admission</label></td>
+          <td>
+            <input type="date" id="admissiondate" name="admissiondate" />
+          </td>
+        </tr>
+        <tr>
+          <td><label for="deptname">Department Name</label></td>
+          <td>
+            <select id="deptname" required>
+              <option value="" disabled selected>Select Department</option>
+              <option value="EEE">EEE</option>
+              <option value="ECE">ECE</option>
+              <option value="CSE">CSE</option>
+              <option value="MECH">MECH</option>
+              <option value="CIVIL">CIVIL</option>
+              <option value="IT">IT</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="yes">Prefer College Hostel</label></td>
+          <td>
+            <input type="radio" id="yes" name="preferHostel" value="Yes" />Yes
+            <input type="radio" id="no" name="preferHostel" value="No" />No
+          </td>
+        </tr>
+        <tr>
+          <td><label for="firstGraduate">First Graduate</label></td>
+          <td>
+            <input
+              type="checkbox"
+              id="firstGraduate"
+              name="firstGraduate"
+              value="firstGraduate"
+            />Click if you are first graduate
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <button type="submit" id="submit" name="submit" onclick="">
+              CONFIRM ADMISSION
+            </button>
+          </td>
+        </tr>
+      </table>
+    </form>
+    <footer><div id="result"></div></footer>
+  </body>
+  <script>
+    function display(event) {
+      event.preventDefault();
+      var sname = document.getElementById("sname").value;
+      var phno = document.getElementById("phno").value;
+      var aid = document.getElementById("aid").value;
+      var admissiondate = document.getElementById("admissiondate").value;
+      var deptname = document.getElementById("deptname").value;
+      var hostelPreference = document.getElementById("yes").value;
+      var firstGraduate = document.querySelector(
+        'input[name="firstGraduate"]:checked'
+      ).value;
+
+      var admissionFee, tuitionFee, hostelFee;
+      var totalFee;
+
+      switch (deptname) {
+        case "EEE":
+          admissionFee = 30000;
+          tuitionFee = 45000;
+          hostelFee = 75000;
+          break;
+        case "ECE":
+          admissionFee = 30000;
+          tuitionFee = 50000;
+          hostelFee = 75000;
+          break;
+        case "CSE":
+          admissionFee = 30000;
+          tuitionFee = 45000;
+          hostelFee = 75000;
+          break;
+        case "MECH":
+          admissionFee = 30000;
+          tuitionFee = 55000;
+          hostelFee = 75000;
+          break;
+        case "CIVIL":
+          admissionFee = 30000;
+          tuitionFee = 50000;
+          hostelFee = 75000;
+          break;
+        case "IT":
+          admissionFee = 30000;
+          tuitionFee = 45000;
+          hostelFee = 75000;
+          break;
+      }
+
+      totalFee = admissionFee + tuitionFee;
+      if (hostelPreference === "Yes") {
+        totalFee += hostelFee;
+      }
+
+      if (firstGraduate) {
+        totalFee -= 20000;
+      }
+
+      // var result = `Hi ${sname}, Your Admission Fee is Rs.${admissionFee} Tuition Fee is Rs.${tuitionFee} Hostel Fee is Rs.${hostelFee} Total College Fee is RS.${totalFee}`;
+      document.getElementById("result").innerHTML = `<ul>
+        <li>Hi ${sname}</li>
+        <li>Your Admission Fee is Rs.${admissionFee}</li>
+        <li>Tution Fee is Rs.${tuitionFee}</li>
+        <li>Hostel fee is Rs.${hostelFee}</li>
+        <li>Total College Fee is Rs.${totalFee}</li>
+        </ul>`;
+      return false;
+    }
+  </script>
+</html>
